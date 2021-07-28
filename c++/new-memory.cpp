@@ -2,7 +2,7 @@
  * @Descripttion: new的使用
  * @Author: cyd
  * @Date: 2021-07-28 17:44:04
- * @LastEditTime: 2021-07-28 18:16:15
+ * @LastEditTime: 2021-07-28 18:18:30
  */
 #include <iostream>
 using namespace std;
@@ -17,7 +17,7 @@ int main()
     printf("*(p+9) = %d\n", *(p+9));
 
     /*分配一个int大小的空间*/
-    p = new int;   //C++使用new和delete
+    p = new int;                 //C++使用new和delete
     *p = 200;
     cout<<*p<<endl;
     delete p;
