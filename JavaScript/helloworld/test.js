@@ -89,3 +89,16 @@ console.log("filter arr: %O", arr);
 var arr = [1, 2, 3, 4, 5, 6];
 var arr = arr.filter((s) => {return s % 2 !== 0}); // filter odd 
 console.log(arr); //  [1, 3, 5]
+
+var arr = ['A', 'B', 'C'];
+var arr = arr.filter( function(element, index, array) {
+    console.log(element);
+    console.log(index);
+    console.log(array);
+    return true;
+});
+
+// indexOf
+var arr = [1, 2, 3, 3, 5, 8, 3, 1, 9, 3]
+arr = arr.filter((s, index) => {return arr.indexOf(s) === index});
+console.log(arr);
