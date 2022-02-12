@@ -102,3 +102,62 @@ var arr = arr.filter( function(element, index, array) {
 var arr = [1, 2, 3, 3, 5, 8, 3, 1, 9, 3]
 arr = arr.filter((s, index) => {return arr.indexOf(s) === index});
 console.log(arr);
+
+// get primer number
+console.log(Array.from(Array(9).keys()).slice(2));
+
+function get_primes(arr) {
+    function isPrimes(s) {
+        if(s === 1) {
+            return false;
+        }
+        var arr1 = Array.from(Array(s).keys()).slice(2, Math.ceil(s/2)+1);  // get primer number only need to divid half of itself.
+        for (var num of arr1) {
+            if(s % num === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    arr = arr.filter(isPrimes);
+    return arr;
+}
+var
+    x,
+    r,
+    arr = [];
+for (x = 1; x < 100; x++) {
+    arr.push(x);
+}
+console.log(arr);
+r = get_primes(arr); // test
+console.log(r);
+
+var arr = [2, 5, 66, 75, 8, 4, 86]
+function compareForSort(x, y) {  // sort from small to large.
+    if(x > y) {
+        return 1;
+    }
+    if(x < y) {
+        return -1;
+    }
+    return 0;
+}
+function sortLarge2Small(x, y) { // function of sort from large to small.
+    return x > y? -1 : 1;
+}
+console.log(arr.sort(sortLarge2Small))
+
+var arr = ['Google', 'GooglF', 'apple', 'appl', 'Microsoft'];
+arr.sort(function (x, y) {
+    var x1 = x.toUpperCase();
+    var y1 = y.toUpperCase();
+    if (x1 < y1) {
+        return -1;
+    }
+    if (x1 > y1) {
+        return 1;
+    }
+    return 0;
+});
+console.log(arr); // ['appl', 'apple', 'Google', 'GooglF', 'Microsoft']

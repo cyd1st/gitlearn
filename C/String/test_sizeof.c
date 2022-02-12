@@ -16,6 +16,9 @@ int main()
     int d = (int)strlen(str2);
     int e = (int)sizeof(str3);
     int f = (int)strlen(str3);
+// if index out of range
+    char ch = str2[7];
+    printf("ch = %c\n", ch);
 
     printf("sizeof(str1) = %d, strlen(str1) = %d\n", a, b);
     printf("sizeof(str2) = %d, strlen(str2) = %d\n", c, d);
