@@ -9,7 +9,7 @@ before compiling:
 #include <string.h>
 #include <bsd/string.h>
 
-int main()
+int main(void)
 {
     char dest[20] = { 0 };
     char src[10] = "123456789";
