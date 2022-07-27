@@ -1,13 +1,14 @@
+CC := gcc
+# VPATH = securec/include
+vpath %.h securec/include
+INCLUDE := -I./securec/include
+LIB = -L./securec
+
 all:sscanf_s
 # finish
 	@echo "--finish--"
 
-CC := gcc
-VAPATH =./securec/include
-INCLUDE := -I./securec/include
-LIB = -L./securec
-
-sscanf_s : test_sscanf_s.c
+sscanf_s : test_sscanf_s.c securec.h
 	$(CC) $^ -lboundscheck $(LIB) $(INCLUDE) -o out/$@
 
 
@@ -15,11 +16,11 @@ sscanf_s : test_sscanf_s.c
 clean:
 	rm -rf *.o out/sscanf_s
 
-.PHONY:test
-# test
-x:=foo
-y=$(x)b
-x+:=$(y)
-test:
-	@echo "x=>$(x)"
-	@echo "y=>$(y)"
+# .PHONY:test
+# # test
+# x:=foo
+# y=$(x)b
+# x+:=$(y)
+# test:
+# 	@echo "x=>$(x)"
+# 	@echo "y=>$(y)"

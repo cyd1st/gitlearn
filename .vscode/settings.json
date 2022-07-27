@@ -1,5 +1,10 @@
 {
     "files.associations": {
+<<<<<<< HEAD
         "stddef.h": "c"
+=======
+        "sstream": "c",
+        "random": "c"
+>>>>>>> fb6cf63bc56f9d82e21773bb83ee92a2e5cd702e
     }
 }
