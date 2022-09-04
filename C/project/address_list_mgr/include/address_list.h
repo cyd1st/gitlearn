@@ -22,10 +22,16 @@ struct Record{               /*员工通讯信息结构体*/
     char name[11];               /*员工姓名*/
     char department[20] ;        /*所属部门*/
     char position[20] ;          /*职务/岗位*/
-    char office_telephone[12] ;  /*座机*/
-    char mobile_telephone[12] ;  /*移动电话*/
+    char officetelephone[12] ;  /*座机*/
+    char mobiletelephone[12] ;  /*移动电话*/
     char email[30] ;             /*电子邮箱*/
     char QQ[12];                 /*工作QQ*/
+};
+
+/* 通讯录链表 */
+struct nodeAddressList {
+    struct Record record;
+    struct nodeAddressList *next;
 };
 
 /*自定义函数原型说明*/
