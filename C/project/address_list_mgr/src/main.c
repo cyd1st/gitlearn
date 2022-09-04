@@ -15,7 +15,7 @@ void isExit(int *choice);
 int main() {
     int choice;   /* choice变量用于保存用户对功能菜单的选择结果*/
     init();      /*程序开始运行时，首先把存放在外存中的学生信息读入内存*/
-    Show( ); exit(0);  // test
+    // Show( ); exit(0);  // test
     SET_CT_BG_WHITE(); // 设置终端背景为白色
 
     /*---------------------------主菜单界面-----------------------*/
