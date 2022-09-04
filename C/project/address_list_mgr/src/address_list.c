@@ -9,9 +9,9 @@
 #define PER_INFO_LEN 1024
 #define RELATIVE_PATH_LEN 128
 
-#define CHANGE_COL_LEN(new, cur) do { \
-        if (new > cur) cur = new;     \
-    } while (0)
+/* 获取记录的最大长度 */
+#define CHANGE_COL_LEN(new, cur) do {if (new > cur) cur = new;} while (0)
+/* 打印分隔横线（部分） */
 #define PRINT_HOR_LINE(len) do {    \
     for (int i = 0; i < len; i++) { \
         printf("-");                \
@@ -111,8 +111,6 @@ void init( )
         CHANGE_COL_LEN(strlen(node->record.QQ), qqColLen);
         if ((qqColLen - strlen(QQ)) % 2) qqColLen++;
     }
-    // printf("%s\n", ListHead.next->next->record.QQ);
-    // printf("TotalNum = %d\n", TotalNum);
 }
 
 /* 打印分隔横线 */
@@ -130,6 +128,7 @@ void PrintHorizontalLines()
     printf("\n");
 }
 
+/* 打印每一列的名字 */
 #define PRINT_COL_NAME(len, name) do {                           \
         printf("| ");                                            \
         for (int i = 0; i < (len - sizeof(name) + 1) / 2; i++) { \
@@ -142,6 +141,7 @@ void PrintHorizontalLines()
         printf(" ");                                             \
     } while (0)
 
+/* 打印标题行 */
 void PrintTitleLine()
 {
     PRINT_COL_NAME(numberColLen, NUMBER);
@@ -155,12 +155,14 @@ void PrintTitleLine()
     printf("|\n");
 }
 
+/* 打印指定长度的指定字符 */
 #define PrintSomeChar(ch, num) do {     \
         for (int i = 0; i < num; i++) { \
             printf("%c", ch);           \
         }                               \
     } while (0)
 
+/* 打印一行数据 */
 void PrintInstanceLine(struct Record *r)
 {
     printf("| %s ", r->number); PrintSomeChar(' ', numberColLen - strlen(r->number));
@@ -174,6 +176,7 @@ void PrintInstanceLine(struct Record *r)
     printf("|\n");
 }
 
+/* 读取通讯录并输出表格 */
 void Show( )
 {
     // printf("nameColLen = %d\n", nameColLen);
