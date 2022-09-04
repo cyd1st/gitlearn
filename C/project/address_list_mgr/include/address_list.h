@@ -17,13 +17,13 @@
 
 #endif // __WIN32__
 
-struct Record{               /*员工通讯信息结构体*/
+struct Record{                   /*员工通讯信息结构体*/
     char number[10];             /*员工编号*/
     char name[11];               /*员工姓名*/
     char department[20] ;        /*所属部门*/
     char position[20] ;          /*职务/岗位*/
-    char officetelephone[12] ;  /*座机*/
-    char mobiletelephone[12] ;  /*移动电话*/
+    char officetelephone[12] ;   /*座机*/
+    char mobiletelephone[12] ;   /*移动电话*/
     char email[30] ;             /*电子邮箱*/
     char QQ[12];                 /*工作QQ*/
 };

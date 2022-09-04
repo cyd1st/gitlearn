@@ -4,7 +4,7 @@
 #define MAXSIZE 100          /*符号常量，通讯录中最多记录个数*/
 
 /*定义全局变量*/
-struct Record  AddressList[MAXSIZE];  /*定义通讯录数组*/
+// struct Record  AddressList[MAXSIZE];  /*定义通讯录数组*/
 struct nodeAddressList ListHead;      /*定义通讯录链表*/
 int TotalNum;                         /*通讯录条目总数*/
 int count=0;                          /*count为计数器，记录当前正在处理的记录个数*/
