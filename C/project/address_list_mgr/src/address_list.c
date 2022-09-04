@@ -185,8 +185,7 @@ void Show( )
     PrintHorizontalLines();
     struct nodeAddressList *cur = ListHead.next;
     while (cur != NULL) {
-        struct Record r = cur->record;
-        PrintInstanceLine(&r);
+        PrintInstanceLine(&cur->record);
         cur = cur->next;
     }
     PrintHorizontalLines();
