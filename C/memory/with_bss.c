@@ -1,6 +1,5 @@
-#include <stdio.h>
+int bss[1024 * 1024] = {0};
 
-double a[1000];
 int main()
 {
     return 0;
