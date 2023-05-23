@@ -29,5 +29,6 @@ int main()
 	auto p = create_vector_int();
 	input_vector(p);
 	print_vector(p);
+	delete p;
 	return 0;
 }
