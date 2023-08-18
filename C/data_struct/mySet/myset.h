@@ -43,6 +43,28 @@ int set_remove(Set *set, void **data);
  */
 int set_union(Set *setu, const Set *set1, const Set *set2);
 
+/*
+  计算两个集合的交集。
+  seti: 两个集合的交集的结果。
+  set1/set2: 要计算的两个集合。
+  返回值：0 表式成功计算交集。-1 表示计算失败。
+  note: seti 成员指向 set1/set2 集合的成员（并非复制），所以需要保持 set1/set2 在 seti 被销毁前可用。
+*/
+int set_intersection(Set *seti, const Set *set1, const Set *set2);
 
+/*
+  计算两个集合的差集。
+  setd: 两个集合的差集的结果。
+  set1/set2: 要计算的两个集合。
+  返回值：0 表式成功计算差集。-1 表示计算失败。
+  note: setd 成员指向 set1/set2 集合的成员（并非复制），所以需要保持 set1/set2 在 setd 被销毁前可用。
+*/
+int set_difference(Set *setd, const Set *set1, const Set *set2);
+
+/*
+  查找指定成员。
+  
+*/
+int set_is_member(const Set *set, const void *data);
 
 #endif
