@@ -12,5 +12,13 @@ int main(void)
     result[0] = add_range(1, 10);
     result[1] = add_range(1, 100);
     printf("result[0]=%d\nresult[1]=%d\n", result[0], result[1]);
+
+    int p[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    int a = 123;
+    printf("%5d\n", a);
+    printf("%5.2f\n", a);   
+    printf("%05d\n", a);
+    printf("%-5dhello\n", a);
     return 0;
 }
