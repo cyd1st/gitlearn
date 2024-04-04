@@ -1,0 +1,9 @@
+{
+    "user": "cyd <noreply_app@163.com>",
+    "password": "TPNZWEUHTXCVUIVA",
+    "send_to": [
+        "chyude@icloud.com"
+    ],
+    "smtp_server_ssl": "smtp.163.com",
+    "smtp_server_ssl_port": "994"
+}
