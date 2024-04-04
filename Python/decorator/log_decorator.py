@@ -21,7 +21,7 @@ def time_duration(fun):
         '''
         start = time.time()
         result = fun(*args, **kw)
-        print("函数", fun.__name__, "执行时间:", time.time() - start)
+        print("函数", fun.__name__, f"执行时间: {time.time() - start:.4}")
         return result
     
     return fun_wrapper
@@ -33,10 +33,10 @@ def now():
     cur_time = datetime.datetime.now()
     now_time = cur_time.strftime("%Y-%m-%d %H:%M:%S")
     print(now_time)
-    # time.sleep(1) # 使装饰器效果更明显
+    time.sleep(1.5) # 使装饰器效果更明显
 
-# now()
+now()
 
-print(now.__name__) # fun_wrapper
+# print(now.__name__) # fun_wrapper
 # 此时发现 now 函数的 __name__ 属性变了，实际很好理解
 # now() 事实上就是 fun_wrapper 函数了
