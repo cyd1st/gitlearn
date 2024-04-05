@@ -43,7 +43,7 @@ class SendEmail():
     def __init__(self, send_msg, send_config:dict) -> None:
         config = send_config
         # 连接发送邮件服务器(SSL)
-        server = smtplib.SMTP_SSL('smtp.163.com', 994)
+        server = smtplib.SMTP_SSL('smtp.xxx.xxx', 994)
         # 打印和SMTP服务器交互的所有信息
         server.set_debuglevel(1)
         # 登录，失败会报异常
