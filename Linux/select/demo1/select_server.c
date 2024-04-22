@@ -22,7 +22,6 @@
  *   实际运行这个命令很可能会超时。
  *
  * 知识点：
- *   []C标准库函数：如printf、exit、memset、strlen、read、write、close等。
  *   []套接字编程：理解什么是套接字（socket），以及如何使用C语言进行套接字编程。包括创建套接字、绑定套接字到服务器地址、监听连接请求、接受新的连接请求、读写数据等。
  *   []网络编程：理解网络编程的基本概念，如IP地址、端口号、TCP/IP协议等。需要掌握的相关函数和结构体包括sockaddr_in、htons、inet_ntoa等。
  *   []多客户端处理：理解如何使用select函数来同时处理多个客户端的连接。包括文件描述符集合的操作（如FD_ZERO、FD_SET、FD_ISSET等），以及select函数的使用。
@@ -153,6 +152,7 @@ int main() {
             exit(EXIT_FAILURE);
         }
 
+        // 当 server_socket 在可读集合中，说明有新的连接
         if (FD_ISSET(server_socket, &read_fds)) {
             handle_new_connection(server_socket, fd_array, &read_fds);
         }
