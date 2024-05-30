@@ -189,9 +189,9 @@ int main() {
     const char o[] = "orange";
     const char w[] = "watermelon";
 
-    HashInsert(map, a, strlen(a), 1);
-    HashInsert(map, b, strlen(b), 2);
-    HashInsert(map, o, strlen(o), 3);
+    HashInsert(map, a, strlen(a), 563);
+    HashInsert(map, b, strlen(b), 24367);
+    HashInsert(map, o, strlen(o), 456);
 
     printf("Value of 'apple': %d\n", HashGetValue(map, a, strlen(a)));
     printf("Value of 'banana': %d\n", HashGetValue(map, b, strlen(b)));
