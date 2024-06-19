@@ -45,10 +45,27 @@ int main(int argc, char *argv[])
         error_handling("listen() error.");
     }
 
+    // 创建管道和子进程来接受并保存数据
+    int fds[2];
+    pipe(fds);
+    pid_t pid = fork();
+    if (pid == 0) {
+        // 子进程用来接受并保存数据
+        FILE *fp = fopen("./out/recv.txt", "wt");
+        char msgbuf[BUFF_SIZE];
+        int len;
+        for (int i = 0; i < 10; i++) {
+            len = read(fds[0], msgbuf, BUFF_SIZE);
+            fwrite(msgbuf, 1, len, fp);
+        }
+        fclose(fp);
+        return 0;
+    }
+
+
     int clnt_sock;
     struct sockaddr_in clnt_addr;
     socklen_t clnt_addr_szie = sizeof(clnt_addr);
-    pid_t pid;
     char buf[BUFF_SIZE];
     int read_len = 0;
     while (1) {
@@ -65,6 +82,7 @@ int main(int argc, char *argv[])
             close(serv_sock);
             while ((read_len = read(clnt_sock, buf, BUFF_SIZE)) != 0) {
                 write(clnt_sock, buf, read_len);
+                write(fds[1], buf, read_len);
             }
 
             close(clnt_sock);
