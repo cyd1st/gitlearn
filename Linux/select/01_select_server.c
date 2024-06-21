@@ -49,6 +49,7 @@ int main(int argc, char *argv[])
     char buf[BUFF_SIZE];
 
     while (1) {
+        // 每次都要重新初始化，因为 select 会修改 readfds_cp 的值（置位，用于判断 fd 是否可用）
         readfds_cp = readfds;
         timeout.tv_sec = 6;
         timeout.tv_usec = 10000;
@@ -76,6 +77,7 @@ int main(int argc, char *argv[])
                         close(i);
                         printf("closed clinet: %d\n", i);
                     } else {
+                        printf("%s", buf);
                         write(i, buf, read_len);
                     }
                 }
