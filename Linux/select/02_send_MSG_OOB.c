@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     write(sock, "789", sizeof("789"));
     send(sock, "1011", sizeof("1011"), MSG_OOB);
     write(sock, "1213", sizeof("1213"));
-    send(sock, "1213", sizeof("1213"), MSG_OOB);
+    send(sock, "1415", sizeof("1415"), MSG_OOB);
     
     close(sock);
     return 0;

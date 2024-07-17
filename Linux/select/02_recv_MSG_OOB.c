@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
         printf("Usage %s <port>\n", argv[0]);
         exit(1);
     }
-
+ 
     int serv_sock = socket(AF_INET, SOCK_STREAM, 0);
     if (serv_sock == -1) {
         error_handling("socket() error.");
@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
         buf[str_len] = '\0';
         puts(buf);
     }
+    printf("Debug: str_len = %lu\n", str_len);
 
     close(clnt_sock);
     close(serv_sock);
