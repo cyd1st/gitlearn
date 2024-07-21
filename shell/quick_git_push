@@ -8,7 +8,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # 定义默认的提交信息
-DEFAULT_MESSAGE='sync'
+DEFAULT_MESSAGE='sync.'
 
 # 解析命令行参数
 while getopts ":m:" opt; do
