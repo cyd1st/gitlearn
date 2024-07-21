@@ -1,0 +1,98 @@
+#!/bin/bash
+
+# ANSI 转义码定义
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# 定义默认的提交信息
+DEFAULT_MESSAGE='sync'
+
+# 解析命令行参数
+while getopts ":m:" opt; do
+  case $opt in
+    m)
+      COMMIT_MESSAGE="$OPTARG"
+      ;;
+    \?)
+      echo -e "${RED}无效选项: -$OPTARG${NC}" >&2
+      exit 1
+      ;;
+    :)
+      echo -e "${RED}选项 -$OPTARG 需要参数.${NC}" >&2
+      exit 1
+      ;;
+  esac
+done
+
+# 移除已解析的选项，避免影响后续的命令
+shift $((OPTIND-1))
+
+# 如果没有提供 -m 参数，使用默认提交信息
+[ -z "$COMMIT_MESSAGE" ] && COMMIT_MESSAGE=$DEFAULT_MESSAGE
+
+# 检查是否在 gitlearn 仓库中
+GIT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
+if [ "$(basename "$GIT_ROOT")" != "gitlearn" ]; then
+    # 如果当前不在 gitlearn 仓库中，打印错误信息并退出
+    echo -e "${RED}当前不在 gitlearn 仓库内${NC}"
+    exit 1
+fi
+
+# 保存当前目录
+ORIGINAL_DIR="$PWD"
+# 切换到 gitlearn 的根目录（在子目录执行可能提交不全）
+cd "$GIT_ROOT"
+
+# 检查是否有文件更改
+CHANGES=$(git status --porcelain)
+if [ -z "$CHANGES" ]; then
+    # 如果没有文件更改，打印信息并退出
+    echo -e "${GREEN}没有文件修改需要提交${NC}"
+    exit 0
+fi
+
+# 显示所有有变更的文件
+echo -e "${BLUE}以下文件有变更：${NC}"
+git status --short
+
+# 执行 git add .
+echo -e "${GREEN}正在添加所有更改到暂存区...${NC}"
+git add .
+
+# 执行 git commit -m "$COMMIT_MESSAGE"
+echo -e "${GREEN}正在提交更改...${NC}"
+git commit -m "$COMMIT_MESSAGE"
+
+# 检查是否有远程仓库可以推送
+REMOTE=$(git config --get remote.origin.url)
+if [ -z "$REMOTE" ]; then
+    # 如果没有远程仓库，打印错误信息并退出
+    echo -e "${RED}没有检测到远程仓库${NC}"
+    exit 1
+fi
+
+# 执行 git push
+echo -e "${GREEN}正在推送到远程仓库...${NC}"
+git push
+
+# 如果脚本运行到这里，说明一切正常
+echo -e "${GREEN}操作完成！${NC}"
+
+# 返回初始目录
+cd "$ORIGINAL_DIR"
+
+
+# 功能介绍：
+#	1. 判断当时是否有效目录。
+#		a. 是否gitlearn目录
+#		b. 是否git仓库
+#	2. 可选参数 -m，用于替换 git commit -m 的内容。
+#		不选该参数，默认为 'sync'
+#	3. 判断是否有文件变更，没有打印提示并结束运行。
+#		并且可以列出变更文件。
+#	4. 判断仓库是否有效（可push）
+#	5. 保存变更并提交到远程。
+#       添加输出提示语颜色等格式
