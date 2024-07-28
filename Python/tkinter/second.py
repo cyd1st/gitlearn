@@ -1,4 +1,5 @@
 import tkinter as tk
+import os
 
 # 创建一个主窗口
 root = tk.Tk()
@@ -9,7 +10,7 @@ root.geometry("800x600")
 canvas = tk.Canvas(root, width=800, height=120)
 canvas.pack(side=tk.TOP, anchor=tk.CENTER)
 # 加载徽标图像
-logo = tk.PhotoImage(file="./asset/google-logo.png")
+logo = tk.PhotoImage(file=f"{os.path.dirname(__file__)}/asset/google-logo.png")
 canvas.create_image(10, 10, anchor=tk.CENTER, image=logo)
 
 # 创建一个框架来容纳搜索栏和按钮
