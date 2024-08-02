@@ -86,15 +86,15 @@ int main(int argc, char *argv[])
                 epoll_ctl(epoll_fd, EPOLL_CTL_ADD, clnt_scok, &ctl_event);
                 printf("connected client : %d \n", clnt_scok);
             } else {
-                // 因为 BUFF SIZE 很小，所以一次可能读取不完
+                // 因为 BUFF SIZE 很小，所以一次可能读取不完。
                 // 并且为边缘触发模式，只会在数据变化时通知一次，也就是说
                 // 需要一次性读取完，不然如果文件描述符没有变化，就不会再通知了
-                // 剩余数据就没法即使获取。
+                // 剩余数据就没法及时获取。
                 // 
                 // 边缘触发模式通常用于高性能服务器，需要处理大量的事件。
                 // 因为如果是水平触发模式，一次没有处理完，下次该事件又会触发，
-                // 影响性能。边缘触发模式可以降低同一事件被处理的次数，降低系统调用
-                // 也就提高了效率。
+                // 影响性能。边缘触发模式可以降低同一事件被处理的次数，
+                // 降低系统调用次数，也就提高了效率。
                 // 
                 // 另外，边缘触发模式需要将文件描述符设置为非阻塞，不然如果数据读取完了
                 // 会等待数据，影响效率。
@@ -107,7 +107,7 @@ int main(int argc, char *argv[])
                 while (1) {
                     read_len = read(events[i].data.fd, buf, BUFF_SIZE);
                     if (read_len == 0) {
-                        // 读取完毕，完毕连接
+                        // 读取完毕，关闭连接
                         epoll_ctl(epoll_fd, EPOLL_CTL_DEL, events[i].data.fd, 0);
                         close(events[i].data.fd);
                         printf("closed client: %d\n", events[i].data.fd);
@@ -117,7 +117,8 @@ int main(int argc, char *argv[])
                         // 这里的 EAGAIN 不用看作是报错，而是边缘触发模式的必然的路径。
                         // 因为设置了非阻塞IO + 当数据处理完了, 必然会出现 EAGAIN。
                         // 通过 EAGAIN 就可以判断数据是否处理完了。
-                        if (errno == EAGAIN) { // 非阻塞IO被阻塞了
+                        if (errno == EAGAIN) {
+                            // 非阻塞IO被阻塞了（即读取/写入不了数据），触发 EAGAIN
                             break;
                         }
                     } else {
