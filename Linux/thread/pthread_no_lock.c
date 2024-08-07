@@ -35,7 +35,7 @@ int main()
     return 0;
 }
 
-void * thread_inc(void *arg)
+void *thread_inc(void *arg)
 {
     for (int i = 0; i < 50000000; i++) {
         sum += i;
