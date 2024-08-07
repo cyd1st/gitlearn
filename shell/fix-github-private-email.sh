@@ -1,3 +1,6 @@
+# 功能：替换以往提交中的涉及隐私邮箱为新的邮箱
+# 用法：./fix-github-private-email.sh old-email@email.com new-email@email.com
+
 #!/bin/bash
 
 # 检查命令行参数数量
