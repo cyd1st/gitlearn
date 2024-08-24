@@ -36,7 +36,7 @@ void thread_function(const std::string& filename)
     if (!file.is_open()) {
         // 使用线程局部存储的 errno
         int errsv = errno;
-        std::cerr << "线程 " << std::this_thread::get_id() << " 文件打开失败，错误代码：" << errsv << std::endl;
+        std::cerr << "线程id: 0x" << std::hex << std::this_thread::get_id() << " 文件打开失败，错误代码：" << std::dec << errsv << std::endl;
         std::cerr << "错误详情：" << strerror(errsv) << std::endl;
     } else {
         std::cout << "线程 " << std::this_thread::get_id() << " 文件成功打开" << std::endl;
