@@ -1,8 +1,10 @@
+/*
+ * 实现一个模板 Pair 类
+ */
 #include <iostream>
 #include <string>
 
 using namespace std;
-
 
 template <class T1, class T2>
 class Pair

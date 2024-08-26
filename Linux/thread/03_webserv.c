@@ -73,11 +73,13 @@ void *request_handler(void *arg)
     int clnt_sock = *(int *)arg;
 
     FILE *clnt_read = fdopen(clnt_sock, "r");
+    FILE *clnt_write = fdopen(dup(clnt_sock), "w");
+
     char req_line[SMALL_BUF];
     fgets(req_line, SMALL_BUF, clnt_read);
+    // debug
+    printf("Get request data: %s\n", req_line);
 
-    FILE *clnt_write = fdopen(clnt_sock, "w");
-    fgets(req_line, SMALL_BUF, clnt_read);
     if (strstr(req_line, "HTTP/") == NULL) {
         goto CLOSE_CONNECT;
     }
@@ -87,10 +89,11 @@ void *request_handler(void *arg)
     char ct[15]; // Connect-type, 连接类型
 
     strcpy(method, strtok(req_line, " /"));
+    //debug
+    printf("Get request method: %s\n", method);
     strcpy(file_name, strtok(NULL, " /"));
     // debug
-    printf("request file name: %s\n", file_name);
-    
+    printf("Get request file name: %s\n", file_name);
     strcpy(ct, content_type(file_name));
     if (strcmp(method, "GET") != 0) {
         goto CLOSE_CONNECT;
@@ -175,3 +178,10 @@ void send_data(FILE *fp, char *ct, char *file_name)
     fclose(fp);
     fclose(send_file);
 }
+
+/* 用法：
+ 编译：gcc 03_webserv.c -o out/ws -lpthread && ./out/ws 12387
+ 运行：
+    浏览器输入 http://127.0.0.1:12387/index.html
+    index.html 文件需要自己提供。
+*/
