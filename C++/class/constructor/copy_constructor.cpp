@@ -11,7 +11,8 @@ class Complex {
             imag = c.imag;
             cout << "Copy Comstructor called";
         }
-}
+};
+
 int main()
 {
     Complex c1;
