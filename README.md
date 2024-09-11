@@ -1,4 +1,4 @@
-[TOC]
+## TOC
 ```shell
 .
 ├── Algorithm
