@@ -10,7 +10,8 @@ public:
     ~Rainbow() { cout << "Rainbow()" << endl; }
 };
 
-void oz() {
+void oz()
+{
     Rainbow rb;
     for (int i = 0; i < 3; i++) {
         cout << "there's no place like home" << endl;
@@ -18,7 +19,8 @@ void oz() {
     throw 47;
 }
 
-int main() {
+int main()
+{
     try {
         cout << "tornado, witch, munchkins..." << endl;
         oz();

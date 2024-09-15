@@ -1,0 +1,1 @@
+unsigned long factorial(unsigned int n);
