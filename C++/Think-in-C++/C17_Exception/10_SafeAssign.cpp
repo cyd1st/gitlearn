@@ -13,11 +13,14 @@ class HasPointers {
         size_t numInts;
 
         MyData(const char *pString, const int *pInts, size_t nInts)
-            : theString(pString), theInts(pInts), numInts(nInts) {}
+            : theString(pString), theInts(pInts), numInts(nInts)
+        {
+        }
     } *theData;
 
     // 这里为了安全的分配内存，我们使用一个clone静态函数
-    static MyData *clone(const char *otherString, const int *otherInts, size_t nInts) {
+    static MyData *clone(const char *otherString, const int *otherInts, size_t nInts)
+    {
         char *newChars = new char[strlen(otherString) + 1];
         int *newInts;
 
@@ -41,11 +44,13 @@ class HasPointers {
     }
 
     // 一个重载的clone,拷贝构造函数
-    static MyData *clone(const MyData *otherData) {
+    static MyData *clone(const MyData *otherData)
+    {
         return clone(otherData->theString, otherData->theInts, otherData->numInts);
     }
     // 内存清理
-    static void cleanup(const MyData *theData) {
+    static void cleanup(const MyData *theData)
+    {
         // 回收全部内存,只要使用了指针的，都要把指针指向的内存回收掉
         delete theData->theString;
         delete theData->theInts;
@@ -53,16 +58,19 @@ class HasPointers {
     }
 
 public:
-    HasPointers(const char *someString, const int *someInts, size_t numInts) {
+    HasPointers(const char *someString, const int *someInts, size_t numInts)
+    {
         theData = clone(someString, someInts, numInts);
     }
     // 拷贝构造函数
     HasPointers(const HasPointers &source) { theData = clone(source.theData); }
     // 赋值拷贝运算符
-    HasPointers &operator=(const HasPointers &rhs) {
+    HasPointers &operator=(const HasPointers &rhs)
+    {
         // 避免自赋值
         if (this != &rhs) {
-            MyData *newData = clone(rhs.theData->theString, rhs.theData->theInts, rhs.theData->numInts);
+            MyData *newData =
+                clone(rhs.theData->theString, rhs.theData->theInts, rhs.theData->numInts);
             cleanup(theData);
             theData = newData;
         }
@@ -71,7 +79,8 @@ public:
     // 析构函数
     ~HasPointers() { cleanup(theData); }
     // 友元函数
-    friend ostream &operator<<(ostream &os, const HasPointers &obj) {
+    friend ostream &operator<<(ostream &os, const HasPointers &obj)
+    {
         os << obj.theData->theString << " : ";
         for (size_t i = 0; i < obj.theData->numInts; ++i)
             os << obj.theData->theInts[i] << ' ';
@@ -79,7 +88,8 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     int someNums[] = {1, 2, 3, 4};
     size_t someCount = sizeof(someNums) / sizeof(someNums[0]);
 
