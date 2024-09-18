@@ -1,3 +1,0 @@
-/home/cyd/gitlearn/C++/C++_Primer/3.5/out/CMakeFiles/rebuild_cache.dir
-/home/cyd/gitlearn/C++/C++_Primer/3.5/out/CMakeFiles/edit_cache.dir
-/home/cyd/gitlearn/C++/C++_Primer/3.5/out/CMakeFiles/begin_end.dir

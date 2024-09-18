@@ -41,6 +41,11 @@ public:
         std::cout << std::endl;
     }
 
+    // 获取堆的大小
+    int size() {
+        return heap.size();
+    }
+
 private:
     std::vector<int> heap;
 
@@ -84,6 +89,8 @@ int main() {
     maxHeap.push(2);
     maxHeap.push(2);
     maxHeap.push(4);
+    maxHeap.push(10);
+    maxHeap.push(0);
 
     std::cout << "Initial Heap: ";
     maxHeap.levelOrderTraversal(); // 打印层次遍历结果
@@ -92,6 +99,13 @@ int main() {
     maxHeap.pop();
     std::cout << "After pop: ";
     maxHeap.levelOrderTraversal(); // 打印层次遍历结果
+
+    std::cout << "After sorting: ";
+    while (maxHeap.size() > 0) {
+        std::cout << maxHeap.pop() << " ";
+    }
+    std::cout << std::endl;
+
 
     return 0;
 }

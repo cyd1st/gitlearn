@@ -1,3 +1,0 @@
-/home/cyd/gitlearn/C++/C++_Primer/5.6/out/CMakeFiles/rebuild_cache.dir
-/home/cyd/gitlearn/C++/C++_Primer/5.6/out/CMakeFiles/edit_cache.dir
-/home/cyd/gitlearn/C++/C++_Primer/5.6/out/CMakeFiles/5_23.dir

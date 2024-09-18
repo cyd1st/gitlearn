@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/cbegin.dir/cbegin.cpp.o  -o cbegin 

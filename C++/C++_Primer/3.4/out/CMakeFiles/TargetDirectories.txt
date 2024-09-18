@@ -1,4 +1,0 @@
-/home/cyd/gitlearn/C++/C++_Primer/3.4/out/CMakeFiles/rebuild_cache.dir
-/home/cyd/gitlearn/C++/C++_Primer/3.4/out/CMakeFiles/edit_cache.dir
-/home/cyd/gitlearn/C++/C++_Primer/3.4/out/CMakeFiles/iterator.dir
-/home/cyd/gitlearn/C++/C++_Primer/3.4/out/CMakeFiles/cbegin.dir
