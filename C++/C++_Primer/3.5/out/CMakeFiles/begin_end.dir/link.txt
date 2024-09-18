@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/begin_end.dir/begin_end.cpp.o  -o begin_end 

@@ -1,4 +1,0 @@
-/home/cyd/gitlearn/C++/C++_Primer/4.3/practice/out/CMakeFiles/rebuild_cache.dir
-/home/cyd/gitlearn/C++/C++_Primer/4.3/practice/out/CMakeFiles/edit_cache.dir
-/home/cyd/gitlearn/C++/C++_Primer/4.3/practice/out/CMakeFiles/4_21.dir
-/home/cyd/gitlearn/C++/C++_Primer/4.3/practice/out/CMakeFiles/4_10.dir

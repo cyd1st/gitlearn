@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/6_17.dir/6_17.cpp.o  -o 6_17 
