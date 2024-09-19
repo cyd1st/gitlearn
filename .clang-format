@@ -112,24 +112,30 @@ ForEachMacros:
   - BOOST_FOREACH
 IfMacros:
   - KJ_IF_MAYBE
-# 头文件相关
-SortIncludes:    CaseSensitive
-IncludeBlocks:   Preserve
+# BEGIN - 头文件相关
+SortIncludes:    true
+IncludeBlocks:   Preserve   # 保持原始 #include 块的位置不变（也就是不会合并到文件头）
 IncludeCategories:
-  - Regex:           '^"(llvm|llvm-c|clang|clang-c)/'
-    Priority:        2
-    SortPriority:    0
-    CaseSensitive:   false
-  - Regex:           '^(<|"(gtest|gmock|isl|json)/)'
+  - Regex:           '^<.*>'
+    Priority:        1
+    SortPriority:    0      # 添加这一行来启用字典序排序
+  - Regex:           '^".*\.h"'
+    Priority:        2      # 数字越小，越靠前
+  - Regex:           '.*'
     Priority:        3
     SortPriority:    0
     CaseSensitive:   false
-  - Regex:           '.*'
-    Priority:        1
+  - Regex:           '^"(llvm|llvm-c|clang|clang-c)/'
+    Priority:        4
+    SortPriority:    0
+    CaseSensitive:   false
+  - Regex:           '^(<|"(gtest|gmock|isl|json)/)'
+    Priority:        5
     SortPriority:    0
     CaseSensitive:   false
 IncludeIsMainRegex: '(Test)?$'
 IncludeIsMainSourceRegex: ''
+# END - 头文件相关
 IndentAccessModifiers: false
 IndentCaseBlocks: false
 IndentCaseLabels: false
