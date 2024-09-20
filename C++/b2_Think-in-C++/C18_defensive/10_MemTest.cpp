@@ -24,6 +24,8 @@ public:
 int main()
 {
     MEM_ON();
+    // MEM_OFF();
+    TRACE_OFF();
     cout << "hello" << endl;
     int *p = new int;
     delete p;
