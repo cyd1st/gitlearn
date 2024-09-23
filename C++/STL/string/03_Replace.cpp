@@ -1,19 +1,8 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include "03_ReplaceAll.h"
 using namespace std;
-
-// 批量替换字符串中的字串
-string &replaceAll(string &context, const string &from, const string &to)
-{
-    size_t lookHere = 0;
-    size_t foundHere;
-    while ((foundHere = context.find(from, lookHere)) != string::npos) {
-        context.replace(foundHere, from.size(), to);
-        lookHere = foundHere + to.size();
-    }
-    return context;
-} ///:~
 
 int main()
 {
@@ -29,6 +18,12 @@ int main()
     cout << text << endl;
 
     string text2 = "a man, a plan, a canal, Panama.";
-    replace(text2.begin(), text2.end(), "a", "A");
+    replace(text2.begin(), text2.end(), 'a', 'A');
+    cout << text2 << endl;
+
+    string text3 = "a man, a plan, a canal, a Panama.";
+    replaceAll(text3, "a ", "");
+    cout << text3 << endl;
+
     return 0;
 }
