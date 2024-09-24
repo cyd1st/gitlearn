@@ -10,20 +10,21 @@ ostream &operator<<(ostream &os, const Date &d)
 
 istream &operator>>(istream &is, Date &d)
 {
-    int year, month, day;
-    is >> month;
     char dash;
-    is >> dash;
-    if (dash != '-') {
-        is.setstate(ios::failbit);
-    }
-    is >> day;
-    is >> dash;
-    if (dash != '-') {
-        is.setstate(ios::failbit);
-    }
-    is >> year;
+    int year, month, day;
 
-    d = Date(year, month, day);
+    is >> d.month;
+    is >> dash;
+    if (dash != '-') {
+        is.setstate(ios::failbit);
+    }
+
+    is >> d.day;
+    is >> dash;
+    if (dash != '-') {
+        is.setstate(ios::failbit);
+    }
+
+    is >> d.year;
     return is;
 }
