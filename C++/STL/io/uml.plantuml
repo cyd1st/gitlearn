@@ -1,0 +1,79 @@
+@startuml
+class ios_base {
+    +good() : bool
+    +eof() : bool
+    +fail() : bool
+    +bad() : bool
+    +clear() : void
+    +setstate(iostate state) : void
+    +rdstate() : iostate
+    -flags: iostate
+}
+
+enum iostate {
+    +goodbit : 0
+    +eofbit : 1
+    +failbit : 2
+    +badbit : 4
+}
+
+class ios {
+    +rdbuf() : basic_streambuf<char,traits<char>>*
+    +imbue(const locale& loc) : void
+    +fill(char c) : char
+    +width(int n) : int
+    +precision(int n) : int
+    +sync() : void
+}
+
+class istream {
+    +read(char* s, streamsize n) : istream&
+    +readsome(char* s, streamsize n) : streamsize
+    +seekg(streamoff pos) : istream&
+    +seekg(streamoff pos, ios_base::seekdir way) : istream&
+    +seekg(ios_base::seekdir way) : istream&
+    +tellg() : streampos
+    +peek() : int_type
+    +ignore(int_type n, int_type delim = '\n') : istream&
+    +get(char_type& ch) : istream&
+    +getline(char_type* s, streamsize n) : istream&
+    +getline(char_type* s, streamsize n, char_type delim) : istream&
+    +get(char_type* s, streamsize n, char_type delim) : istream&
+    +get(char_type* s, streamsize n) : istream&
+    +get() : int_type
+}
+
+class ostream {
+    +write(const char* s, streamsize n) : ostream&
+    +flush() : void
+    +put(char_type ch) : ostream&
+    +put(char_type* s) : ostream&
+    +tellp() : streampos
+    +seekp(streamoff pos) : ostream&
+    +seekp(streamoff pos, ios_base::seekdir way) : ostream&
+    +seekp(ios_base::seekdir way) : ostream&
+}
+
+class iostream {
+    +swap(iostream& str) : void
+}
+
+ios_base <|-- ios
+ios <|-- istream
+ios <|-- ostream
+istream <|-- iostream
+ostream <|-- iostream
+istream <|-- ifstream
+ostream <|-- ofstream
+iostream <|-- fstream
+
+istream <|-- istringstream
+ostream <|-- ostringstream
+iostream <|-- stringstream
+
+streambuf <|-- filebuf
+streambuf <|-- stringbuf
+
+ios_base .> iostate : uses >
+ios .> streambuf : uses >
+@enduml
