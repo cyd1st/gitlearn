@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-    ofstream T("format.out");
+    ofstream T(".\\out\format.out");
     assure(T, "open failed.");
     D(int i = 47;)
     D(float f = 2300114.414159;)
