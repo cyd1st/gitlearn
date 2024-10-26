@@ -60,7 +60,7 @@ AlignConsecutiveShortCaseStatements:
   AcrossComments:  false
   AlignCaseColons: false
 AlignEscapedNewlines: Right
-AlignOperands:   Align # 改为 Enbale 会影响缩进宽度
+AlignOperands:   Align
 AlignTrailingComments:
   Kind:            Always
   OverEmptyLines:  0
