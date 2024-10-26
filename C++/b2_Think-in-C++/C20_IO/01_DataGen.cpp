@@ -29,6 +29,7 @@ int main()
         double newtemp = 150 + rand() % 200; // Kelvin
         fraction = rand() % 100 + 1;
         newtemp += 1.0 / fraction;
+
         const DataPoint d(timer, Coord(45, 20, 31), Coord(22, 34, 18), newdepth, newtemp);
         data << d << endl;
         bindata.write(reinterpret_cast<const char *>(&d), sizeof(d));
