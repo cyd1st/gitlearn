@@ -1,6 +1,7 @@
 .vscode/
 out/
 .mypy_cache/
+a.out
 *.o
 *.exe
 *.layout

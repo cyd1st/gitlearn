@@ -1,0 +1,21 @@
+digraph BST {
+    node [shape=circle, color=black, fillcolor=lightgrey, style=filled];
+    edge [color=black];
+
+    // 定义节点和边
+    15 -> 10;
+    15 -> 20;
+    10 -> 8;
+    10 -> 12;
+    20 -> 17;
+    20 -> 25;
+
+    // 节点标签
+    15 [label="15"];
+    10 [label="10"];
+    20 [label="20"];
+    8 [label="8"];
+    12 [label="12"];
+    17 [label="17"];
+    25 [label="25"];
+}
