@@ -1,7 +1,7 @@
 ---
 Language:        Cpp
 # BasedOnStyle:  LLVM
-# 大括号{}的格式化方式
+# BEGIN: 大括号{}的格式化方式
 BreakBeforeBraces: Custom
 BraceWrapping: # false代表不需要换行
   AfterCaseLabel:  false
@@ -22,6 +22,7 @@ BraceWrapping: # false代表不需要换行
   SplitEmptyFunction: true
   SplitEmptyRecord: true
   SplitEmptyNamespace: true
+# END: 大括号{}的格式化方式
 ColumnLimit:     100      # 一行最大字符数
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
@@ -74,7 +75,9 @@ AllowShortEnumsOnASingleLine: true
 AllowShortFunctionsOnASingleLine: All
 AllowShortIfStatementsOnASingleLine: Never
 AllowShortLambdasOnASingleLine: All
-AllowShortLoopsOnASingleLine: false
+# BEGIN: 关于 循环体 的配置
+AllowShortLoopsOnASingleLine: false # 允许短循环体不换行
+# END: 关于 循环体 的配置
 AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
