@@ -1,0 +1,15 @@
+html {
+    font-size: 15px;
+    font-family: "Open Sans", sans-serif;
+    background-color: rgb(243, 226, 191);
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 3px 3px 1px rgb(104, 103, 103);
+}
+
+ol {
+    color: brown;
+    letter-spacing: 1.5px;
+}

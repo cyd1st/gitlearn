@@ -7,6 +7,7 @@ strong {
 ul {
     font-family: 'Open Sans', sans-serif;
 }
+
 ul:hover {
     font-size: large;
 }
@@ -18,7 +19,7 @@ p.editor-note {
 h1 {
     /* margin: 0; */
     text-align: center;
-    text-shadow: 2px 2px 0px black;
+    text-shadow: 2px 2px 0px rgb(128, 128, 128);
 }
 
 #logo-png {
@@ -36,4 +37,9 @@ body {
     background-color: #ff95001f;
     padding: 0 20px 20px 20px;
     border: 5px solid black;
-  }
+}
+
+dt {
+    font-weight: bolder;
+    color: rgba(0, 0, 255, 0.151);
+}
