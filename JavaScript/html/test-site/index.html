@@ -21,7 +21,8 @@
 </head>
 
 <body>
-    <h1>Linux 简介</h1>
+    <div class="box absolute-box"><a href="#top-title">回到顶部</a></div>
+    <h1 id="top-title">Linux 简介</h1>
     <img id="logo-png" src="images/linux-log.png" alt="Linux loge" width="120" />
     <p class="editor-note">Linux 是一个<strong>开源</strong>的操作系统。
         该操作系统的内核由林纳斯·托瓦兹在1991年10月5日首次发布，
@@ -74,15 +75,29 @@
     </blockquote>
 
     <h2 id="css-title">CSS</h2>
+    <p>CSS 是一门基于<ruby>规<rt>gui</rt>则<rt>ze</rt><ruby>的语言，可以通过指定应用于网页上特定元素或元素组的样式组，来定义规则。</p>
+    <pre><code>
+    h1 {
+        color: red;
+        font-size: 5em;
+    }
+    </code></pre>
+    <h3>分栏</h3>
+    <div style="columns: 3; column-gap: 30px; display: flex">
+        <p>你可以通过 CSS 为许多东西添加样式，CSS 由许多模块（module）构成。你可以在 MDN 上浏览这些模块的参考内容，许多模块都被组织在自己单独的文档页面。例如，我想查找一下 MDN 的 Backgrounds
+            and Borders 模块的参考页面，来了解它是用来做什么的、它还包括什么属性、它还有什么其他特性等。在该模块中，你也可以找到指向定义了该技术规范的链接（见下文）。</p>
+        <p>在这个阶段你不必过于担心 CSS 是如何组织的 (how CSS is structured)，但是它能帮助你更好的掌握 CSS。例如，你注意到某个属性和另外一些属性的相似点，并且它们可能确实是相同的格式。</p>
+        <p>举个具体点的例子：如上文中的 Backgrounds and Borders 模块 — 你会发现 background-color 和 border-color 这两个属性在逻辑上相通。并且它也确实如此。</p>
+    </div>
 
     <h2 id="javascript-title">JavaScript</h2>
     <p>js代码</p>
     <pre><code>
-        const para = document.querySelector('p');
+    const para = document.querySelector('p');
 
-        para.onclick = function() {
-          alert('噢，噢，噢，别点我了。');
-        }
+    para.onclick = function() {
+        alert('噢，噢，噢，别点我了。');
+    }
     </code></pre>
 
     <p>

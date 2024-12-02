@@ -33,13 +33,32 @@ html {
 }
 
 body {
-    margin: 10 auto;
+    margin: 20 auto;
     background-color: #ff95001f;
     padding: 0 20px 20px 20px;
     border: 5px solid black;
 }
 
 dt {
-    font-weight: bolder;
-    color: rgba(0, 0, 255, 0.151);
+    font-weight: bold;
+    color: blue;
+}
+
+.box {
+    width: 45px;
+    height: 45px;
+    /* font-size: 15px; */
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+    background-color: lightblue;
+    border: 2px #26061f49 solid;
+    border-radius: 50%;
+}
+
+.absolute-box {
+    position: fixed;
+    /* float: left; */
+    top: 0;
+    left: 0;
 }
