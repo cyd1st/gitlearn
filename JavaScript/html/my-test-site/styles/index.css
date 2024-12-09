@@ -23,6 +23,7 @@ ul li {
 nav {
     display: flex;
     background-color: #9db9d69c;
+    border-radius: 3px;
 }
 
 nav ul {
@@ -56,6 +57,7 @@ nav input[type="search"] {
     flex: 3;
     border: 0;
     padding: 2px 4px;
+    border-radius: 4px;
 }
 
 nav input[type="submit"] {
@@ -64,6 +66,7 @@ nav input[type="submit"] {
     background-color: #0E5CAD;
     color: aliceblue;
     margin-left: 5px;
+    border-radius: 6px;
 }
 
 nav input[type="submit"]:hover {
