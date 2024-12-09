@@ -11,7 +11,6 @@ ostream &operator<<(ostream &os, const Date &d)
 istream &operator>>(istream &is, Date &d)
 {
     char dash;
-    int year, month, day;
 
     is >> d.month;
     is >> dash;
