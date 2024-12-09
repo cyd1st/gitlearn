@@ -1,0 +1,193 @@
+p strong {
+    color: rgba(255, 81, 0, 0.89);
+    width: auto;
+    border: 1px solid black;
+}
+
+ul {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* 自定义计数器。可以尝试将 circled-alpha 设置为 list-style-type 样式看看效果 */
+@counter-style circled-alpha {
+    system: fixed;
+    symbols: Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ;
+    suffix: " ";
+}
+
+ul li {
+    /* 设置列表项目符号，none为移除 */
+    list-style-type: circle;
+}
+
+nav {
+    display: flex;
+    background-color: #9db9d69c;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: "\1F44D";
+    flex: 2;
+}
+
+nav ul:hover {
+    font-size: auto;
+}
+
+nav li {
+    display: inline;
+    /* text-align: center; */
+    flex: 1;
+}
+
+nav li:hover {
+    font-weight: bolder;
+}
+
+nav form {
+    flex: 1;
+    display: flex;
+    height: auto;
+    margin: 10px;
+}
+
+nav input[type="search"] {
+    flex: 3;
+    border: 0;
+    padding: 2px 4px;
+}
+
+nav input[type="submit"] {
+    flex: 1;
+    border: 0;
+    background-color: #0E5CAD;
+    color: aliceblue;
+    margin-left: 5px;
+}
+
+nav input[type="submit"]:hover {
+    color: white;
+    font-weight: bold;
+}
+
+p.editor-note {
+    font-family: '楷体';
+}
+
+h1 {
+    /* margin: 0; */
+    text-align: center;
+    text-shadow: 2px 2px 0px rgb(128, 128, 128);
+}
+
+#logo-png {
+    display: block;
+    margin: 0 auto;
+}
+
+html {
+    padding: 2%;
+    background-color: aliceblue;
+}
+
+body {
+    margin: 20 auto;
+    background-color: #ff95001f;
+    padding: 0 20px 20px 20px;
+    border: 5px solid black;
+}
+
+main {
+    /* 项目之间的间距 */
+    gap: 20px;
+}
+
+article {
+    /* 确保所有 articles 都在第一列 */
+    grid-column: 1 / 2;
+}
+
+aside {
+    /* 将 aside 放置在第二列 */
+    grid-column: 1 / 2;
+    padding: 15px 15px;
+}
+
+dt {
+    font-weight: bold;
+    color: blue;
+}
+
+.box {
+    width: 45px;
+    height: 20px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3px;
+    background-color: lightblue;
+    border: 2px #26061f49 solid;
+    border-radius: 10%;
+}
+
+.absolute-box {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+/* 实验：浮动元素 */
+.container {
+    border: 1px solid black;
+}
+
+/* 两侧的悬浮方块 */
+.float-left {
+    float: left;
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    background-image: linear-gradient(135deg, #5EFCE8 15%, #736EFE 100%);
+    transform: rotate(-0.125turn);
+    margin-top: 20px;
+}
+
+.float-right {
+    float: right;
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    background-image: linear-gradient(135deg, #79F1A4 15%, #0E5CAD 100%);
+    transform: rotate(0.125turn);
+    margin-top: 20px;
+}
+
+
+div div.content {
+    background-image:
+        url("../images/lizard.png"),
+        url("../images/star.png");
+    height: 80px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* 媒体查询 */
+@media (min-width: 70em) {
+    body {
+        background-color: rgba(194, 219, 236, 0.144);
+    }
+
+    main {
+        display: grid;
+        /* 左侧自适应宽度，右侧固定宽度 */
+        grid-template-columns: auto 300px;
+        /* 项目之间的间距 */
+        gap: 20px;
+    }
+}
