@@ -45,111 +45,114 @@
     <div class="box absolute-box"><a href="#top-top">回到顶部</a></div>
 
     <main>
-        <article>
-            <h1>Linux 简介</h1>
-            <img id="logo-png" src="images/linux-log.png" alt="Linux loge" width="120" />
-            <p class="editor-note">Linux 是一个<strong>开源</strong>的操作系统。
-                该操作系统的内核由林纳斯·托瓦兹在1991年10月5日首次发布，
-                再加上用户空间的应用程序之后，就成为了
-                <a href="https://www.kernel.org/" title="Linux内核官网" target="_blank">Linux</a>
-                操作系统。
-            </p>
+        <div>
+            <article>
+                <h1>Linux 简介</h1>
+                <img id="logo-png" src="images/linux-log.png" alt="Linux loge" width="120" />
+                <p class="editor-note">Linux 是一个<strong>开源</strong>的操作系统。
+                    该操作系统的内核由林纳斯·托瓦兹在1991年10月5日首次发布，
+                    再加上用户空间的应用程序之后，就成为了
+                    <a href="https://www.kernel.org/" title="Linux内核官网" target="_blank">Linux</a>
+                    操作系统。
+                </p>
 
-            <p>Linux也广泛应用在嵌入式系统上，如</p>
-            <ul>
-                <li>手机（Mobile Phone）</li>
-                <li>平板电脑（Tablet）</li>
-                <li>路由器（Router）</li>
-                <li>电视（TV）</li>
-                <li>电子游戏机</li>
-            </ul>
-            <p>等。在<a>移动设备</a>上广泛使用的<em>Android</em>操作系统就是创建在Linux内核之上。
-            </p>
+                <p>Linux也广泛应用在嵌入式系统上，如</p>
+                <ul>
+                    <li>手机（Mobile Phone）</li>
+                    <li>平板电脑（Tablet）</li>
+                    <li>路由器（Router）</li>
+                    <li>电视（TV）</li>
+                    <li>电子游戏机</li>
+                </ul>
+                <p>等。在<a>移动设备</a>上广泛使用的<em>Android</em>操作系统就是创建在Linux内核之上。
+                </p>
 
-            <button>press</button>
-        </article>
+                <button>press</button>
+            </article>
 
-        <article>
-            <h1>Web</h1>
-            <h2>术语表</h2>
-            <dl>
-                <a href="#html-title">
-                    <dt>HTML</dt>
-                </a>
-                <dd>HyperText Markup Language, 是一种标记语言，用于创建网页。</dd>
+            <article>
+                <h1>Web</h1>
+                <h2>术语表</h2>
+                <dl>
+                    <a href="#html-title">
+                        <dt>HTML</dt>
+                    </a>
+                    <dd>HyperText Markup Language, 是一种标记语言，用于创建网页。</dd>
 
-                <a href="#css-title">
-                    <dt>CSS</dt>
-                </a>
-                <dd>Cascading Style Sheets, 用于描述 HTML 文档的呈现方式。</dd>
+                    <a href="#css-title">
+                        <dt>CSS</dt>
+                    </a>
+                    <dd>Cascading Style Sheets, 用于描述 HTML 文档的呈现方式。</dd>
 
-                <a href="#javascript-title">
-                    <dt>JavaScript</dt>
-                </a>
-                <dd>一种编程语言，常用于实现网页上的交互功能。</dd>
-            </dl>
+                    <a href="#javascript-title">
+                        <dt>JavaScript</dt>
+                    </a>
+                    <dd>一种编程语言，常用于实现网页上的交互功能。</dd>
+                </dl>
 
-            <h2 id="html-title">HTML</h2>
-            <p>HTML 的主要工作之一是赋予文本结构，使浏览器能够按照开发者的意图显示 HTML 文档。</p>
+                <h2 id="html-title">HTML</h2>
+                <p>HTML 的主要工作之一是赋予文本结构，使浏览器能够按照开发者的意图显示 HTML 文档。</p>
 
-            <p>块引用:</p>
-            <blockquote cite="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/blockquote">
+                <p>块引用:</p>
+                <blockquote cite="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/blockquote">
+                    <p>
+                        如果一个块级内容（一个段落、多个段落、一个列表等）从其他地方被引用，你应该把它用
+                        <em>&lt;blockquote&gt;</em>元素包裹起来表示，并且在 cite 属性里用 URL 来指向引用的资源。
+                    </p>
+                </blockquote>
+
+                <h2 id="css-title">CSS</h2>
+                <p>CSS 是一门基于<ruby>规<rt>gui</rt>则<rt>ze</rt><ruby>的语言，可以通过指定应用于网页上特定元素或元素组的样式组，来定义规则。</p>
+                <pre><code>
+                h1 {
+                    color: red;
+                    font-size: 5em;
+                }
+                </code></pre>
+                <!-- 浮动元素实验 -->
+                <div class="container">
+                    <div class="float-left">左浮动<br>逆时针旋转90</div>
+                    <div class="float-right">右浮动<br>顺时针旋转90</div>
+                    <div class="content">这是内容</div>
+                </div>
+
+                <h3>分栏</h3>
+                <div style="columns: 3; column-gap: 30px;">
+                    <p>如果您想在第一个
+                        &lt;p&gt;元素之后强制开始一个新列，您可以在该元素的style属性中添加break-after: column;</p>
+                    <p style="break-before: column;">如果您想在第二个&lt;p&gt;元素之前强制开始一个新列，可以在该元素的style属性中添加break-before:
+                        column;
+                    </p>
+                    <p>请注意，break-before和break-after属性在不同的浏览器和环境中可能有不同的支持程度。此外，它们在多列布局中的效果可能会受到其他CSS属性和内容流动的影响。</p>
+                </div>
+
+                <h2 id="javascript-title">JavaScript</h2>
+                <p>js代码</p>
+                <pre><code>
+        const para = document.querySelector('p');
+    
+        para.onclick = function() {
+            alert('噢，噢，噢，别点我了。');
+        }
+                </code></pre>
+
                 <p>
-                    如果一个块级内容（一个段落、多个段落、一个列表等）从其他地方被引用，你应该把它用
-                    <em>&lt;blockquote&gt;</em>元素包裹起来表示，并且在 cite 属性里用 URL 来指向引用的资源。
+                    <code>onclick</code>是一个通用回调属性。
                 </p>
-            </blockquote>
 
-            <h2 id="css-title">CSS</h2>
-            <p>CSS 是一门基于<ruby>规<rt>gui</rt>则<rt>ze</rt><ruby>的语言，可以通过指定应用于网页上特定元素或元素组的样式组，来定义规则。</p>
-            <pre><code>
-            h1 {
-                color: red;
-                font-size: 5em;
-            }
-            </code></pre>
-            <!-- 浮动元素实验 -->
-            <div class="container">
-                <div class="float-left">左浮动<br>逆时针旋转90</div>
-                <div class="float-right">右浮动<br>顺时针旋转90</div>
-                <div class="content">这是内容</div>
-            </div>
+                <p>在上述的 JavaScript 示例中，<var>para</var> 表示一个段落元素。</p>
 
-            <h3>分栏</h3>
-            <div style="columns: 3; column-gap: 30px;">
-                <p>如果您想在第一个
-                    &lt;p&gt;元素之后强制开始一个新列，您可以在该元素的style属性中添加break-after: column;</p>
-                <p style="break-before: column;">如果您想在第二个&lt;p&gt;元素之前强制开始一个新列，可以在该元素的style属性中添加break-before: column;
-                </p>
-                <p>请注意，break-before和break-after属性在不同的浏览器和环境中可能有不同的支持程度。此外，它们在多列布局中的效果可能会受到其他CSS属性和内容流动的影响。</p>
-            </div>
+                <p>按 <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd> 选择全部内容。</p>
 
-            <h2 id="javascript-title">JavaScript</h2>
-            <p>js代码</p>
-            <pre><code>
-    const para = document.querySelector('p');
-
-    para.onclick = function() {
-        alert('噢，噢，噢，别点我了。');
-    }
-            </code></pre>
-
-            <p>
-                <code>onclick</code>是一个通用回调属性。
-            </p>
-
-            <p>在上述的 JavaScript 示例中，<var>para</var> 表示一个段落元素。</p>
-
-            <p>按 <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd> 选择全部内容。</p>
-
-            <pre>
-    $ <kbd>ping mozilla.org</kbd>
-    <samp>
-    PING mozilla.org (63.245.215.20): 56 data bytes
-    64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms
-    </samp>
-            </pre>
-        </article>
+                <pre>
+        $ <kbd>ping mozilla.org</kbd>
+        <samp>
+        PING mozilla.org (63.245.215.20): 56 data bytes
+        64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms
+        </samp>
+                </pre>
+            </article>
+        </div>
 
         <aside>
             <!-- 侧边栏在主内容右侧 -->
@@ -157,7 +160,7 @@
             <ul>
                 <li><a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps/How_CSS_works">CSS 如何运行</a>
                 </li>
-                <li><a href="#">这是一个超链接2</a></li>
+                <li><a href="/others/demo2-float-pic">Float Demo<sub>[local]</sub></a></li>
                 <li><a href="#">这是一个超链接3</a></li>
                 <li><a href="#">这是一个超链接4</a></li>
             </ul>
@@ -166,7 +169,7 @@
 
     <footer>
         <!-- 统一页脚 -->
-        <p>© 2024 保留所有权利</p>
+        <p>© 2024 nobody保留所有权利</p>
     </footer>
 </body>
 

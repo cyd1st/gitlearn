@@ -102,18 +102,17 @@ body {
 }
 
 main {
+    display: auto;
     /* 项目之间的间距 */
     gap: 20px;
 }
 
-article {
-    /* 确保所有 articles 都在第一列 */
-    grid-column: 1 / 2;
+main div {
+    flex: 3;
 }
 
 aside {
-    /* 将 aside 放置在第二列 */
-    grid-column: 1 / 2;
+    flex: 1;
     padding: 15px 15px;
 }
 
@@ -187,7 +186,7 @@ a:hover {
     }
 
     main {
-        display: grid;
+        display: flex;
         /* 左侧自适应宽度，右侧固定宽度 */
         grid-template-columns: auto 300px;
         /* 项目之间的间距 */
