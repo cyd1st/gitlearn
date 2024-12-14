@@ -26,7 +26,7 @@ body {
     /* 清除浮动效果-1 */
     /* overflow: auto; */
     /* 清除浮动效果-4 */
-    display: flow-root
+    /* display: flow-roots */
 }
 
 /* 清除浮动效果：三选一查看效果 */
