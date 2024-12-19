@@ -4,8 +4,19 @@ p strong {
     border: 1px solid black;
 }
 
+@font-face {
+    font-family: "Bitstream Vera Serif Bold";
+    src: url("https://mdn.github.io/css-examples/web-fonts/VeraSeBd.ttf");
+}
+
+@font-face {
+    font-family: "My Console Blod";
+    src: local(Consolas);
+    font-weight: normal;
+}
+
 ul {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "My Console Blod" "Bitstream Vera Serif Bold" 'Open Sans', sans-serif;
 }
 
 /* 自定义计数器。可以尝试将 circled-alpha 设置为 list-style-type 样式看看效果 */
