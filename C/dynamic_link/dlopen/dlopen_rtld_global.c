@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// 可以通过编译选项添加宏 -DGLOBAL，来看看区别。
+// 说明：libuseadd.so 库中通过 dlopen 加载了 libadd.so 的内容
 int main()
 {
 #ifdef GLOBAL

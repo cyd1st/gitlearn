@@ -1,0 +1,1 @@
+This library is for demonstrating a dynamic library calling another using dlopen.
