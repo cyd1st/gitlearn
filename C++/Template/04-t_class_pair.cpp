@@ -61,8 +61,8 @@ int main()
     Pair<string, int> stu1("Tom", 18);
     Pair<string, int> stu2("jane", 20);
 
-    cout << (stu1 < stu2) << endl; // (Tom,18)
-    cout << stu1 << endl;
+    cout << (stu1 < stu2) << endl; // 1 
+    cout << stu1 << endl; // (Tom,18)
 
     Pair<double, int> p1(23.21, 8);
     cout << p1 << endl; // (23.21,8)
