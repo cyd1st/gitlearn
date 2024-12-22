@@ -16,7 +16,7 @@ int main()
 
     double c = 12.45, d = 20.45;
     Swap(c, d);
-    std::cout << c << " " << d << std::endl; 
+    std::cout << c << " " << d << std::endl;
 
     return 0;
 }
