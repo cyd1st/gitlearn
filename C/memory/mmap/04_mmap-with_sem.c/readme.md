@@ -1,0 +1,1 @@
+code from: https://izualzhy.cn/mmap
