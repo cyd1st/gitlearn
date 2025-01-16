@@ -186,6 +186,11 @@ div div.content {
     height: 80px;
 }
 
+p.editor-note::first-line {
+    color: blue;
+    font-variant: small-caps;
+}
+
 a:hover {
     text-decoration: none;
 }
