@@ -1,10 +1,11 @@
 #include <cstdio>
+#include <fstream>
 #include <ios>
 #include <iostream>
-#include <fstream>
 #include <string>
 
-void func1() {
+void func1()
+{
     std::fstream file;
     file.open("fstream_t.cpp", std::ios_base::in);
 
@@ -14,7 +15,8 @@ void func1() {
     }
 }
 
-void func2() {
+void func2()
+{
     std::fstream file("fstream_t.cpp");
 
     std::string line;
@@ -23,12 +25,14 @@ void func2() {
     }
 }
 
-void func3() {
+void func3()
+{
     std::fstream file;
     file.open("example.txt", std::ios::trunc | std::ios::out);
 }
 
-void func4() {
+void func4()
+{
     std::fstream file;
     file.open("example.txt", std::ios::app | std::ios::in);
 
@@ -43,9 +47,20 @@ void func4() {
     std::cout << line << std::endl;
     std::cout << std::nounitbuf;
 }
-int main() {
-    
-    func3();
-    func4();
+
+void func5()
+{
+    std::ifstream in("example.txt");
+    std::string line;
+    while (std::getline(in, line)) {
+        std::cout << line << std::endl;
+    }
+}
+
+int main()
+{
+    // func3();
+    // func4();
+    func5();
     return 0;
 }
