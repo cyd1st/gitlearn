@@ -82,6 +82,7 @@ AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
 AlwaysBreakTemplateDeclarations: MultiLine
+BreakTemplateDeclarations: Yes # 可以使模板声明与类声明换行
 AttributeMacros:
   - __capability
 BinPackArguments: false
