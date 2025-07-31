@@ -14,7 +14,7 @@ int main()
         return 42;
     });
 
-    cout << "waiting..." << endl;
+    cout << "main thread waiting" << endl;
     cout << f.get() << endl;
     return 0;
 }
