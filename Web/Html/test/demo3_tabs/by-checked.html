@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>纯CSS标签页（:checked版）</title>
+    <style>
+        /* 隐藏默认的radio按钮 */
+        .tab-input {
+            display: none;
+        }
+
+        /* 标签样式 */
+        .tab-label {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-right: 5px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+        }
+
+        .tab-label:hover {
+            background: #e0e0e0;
+        }
+
+        /* 内容区域默认隐藏 */
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-top: -1px;
+        }
+
+        /* 对应的radio选中时，显示内容 */
+        #tab1-input:checked~#tab1-content,
+        #tab2-input:checked~#tab2-content,
+        #tab3-input:checked~#tab3-content {
+            display: block;
+        }
+
+        /* 默认显示第一个标签内容 */
+        #tab1-input:checked~#tab1-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 标签组 -->
+    <input type="radio" name="tabs" id="tab1-input" class="tab-input" checked>
+    <label for="tab1-input" class="tab-label">标签一</label>
+
+    <input type="radio" name="tabs" id="tab2-input" class="tab-input">
+    <label for="tab2-input" class="tab-label">标签二</label>
+
+    <input type="radio" name="tabs" id="tab3-input" class="tab-input">
+    <label for="tab3-input" class="tab-label">标签三</label>
+
+    <!-- 内容区 -->
+    <div id="tab1-content" class="tab-content">
+        <h3>标签一内容</h3>
+        <p>这是第一个面板的内容。</p>
+    </div>
+
+    <div id="tab2-content" class="tab-content">
+        <h3>标签二内容</h3>
+        <p>这是第二个面板的内容。</p>
+    </div>
+
+    <div id="tab3-content" class="tab-content">
+        <h3>标签三内容</h3>
+        <p>这是第三个面板的内容。</p>
+    </div>
+
+</body>
+
+</html>
