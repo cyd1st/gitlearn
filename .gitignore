@@ -6,4 +6,5 @@ a.out
 *.exe
 *.layout
 build/
+node_modules/
 
