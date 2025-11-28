@@ -1,9 +1,7 @@
-/*
- * 类似 lock_guard 的线程安全 guard 类。
- */
 #ifndef THREAD_GUARD_H
 #define THREAD_GUARD_H
 
+#include <iostream>
 #include <thread>
 
 class ThreadGuard {
@@ -18,6 +16,7 @@ public:
     ~ThreadGuard()
     {
         if (t.joinable()) {
+            std::cout << "[Guard] 析构函数被调用，自动调用 join()." << std::endl;
             t.join();
         }
     }
@@ -26,5 +25,4 @@ public:
     ThreadGuard(const ThreadGuard &) = delete;
     ThreadGuard &operator=(const ThreadGuard &) = delete;
 };
-
 #endif // THREAD_GUARD_H
