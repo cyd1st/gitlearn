@@ -1,10 +1,10 @@
 .vscode/
 out/
 .mypy_cache/
+build/
+node_modules/
+
 a.out
 *.o
 *.exe
 *.layout
-build/
-node_modules/
-
