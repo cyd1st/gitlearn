@@ -65,19 +65,70 @@ git add .
 
 # 执行 git commit -m "$COMMIT_MESSAGE"
 echo -e "${GREEN}正在提交更改...${NC}"
-git commit -m "$COMMIT_MESSAGE"
+if ! git commit -m "$COMMIT_MESSAGE"; then
+    echo -e "${YELLOW}提交失败或没有可提交的更改，请检查后重试${NC}"
+    # 返回初始目录
+    cd "$ORIGINAL_DIR"
+    exit 1
+fi
 
 # 检查是否有远程仓库可以推送
 REMOTE=$(git config --get remote.origin.url)
 if [ -z "$REMOTE" ]; then
     # 如果没有远程仓库，打印错误信息并退出
     echo -e "${RED}没有检测到远程仓库${NC}"
+    # 返回初始目录
+    cd "$ORIGINAL_DIR"
     exit 1
 fi
 
-# 执行 git push
+# 获取当前分支
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+echo -e "${BLUE}当前分支: ${BRANCH}${NC}"
+
+# 获取远端信息
+echo -e "${GREEN}正在从远程获取最新信息...${NC}"
+git fetch origin
+
+# 比较本地与远程状态
+LOCAL_HASH=$(git rev-parse @)
+REMOTE_HASH=$(git rev-parse "origin/$BRANCH" 2>/dev/null || true)
+BASE_HASH=$(git merge-base @ "origin/$BRANCH" 2>/dev/null || true)
+
+if [ "$REMOTE_HASH" = "" ]; then
+    echo -e "${YELLOW}远程不存在分支 origin/${BRANCH}，将直接推送本地分支${NC}"
+elif [ "$LOCAL_HASH" = "$REMOTE_HASH" ]; then
+    echo -e "${GREEN}本地与远程已同步${NC}"
+elif [ "$LOCAL_HASH" = "$BASE_HASH" ]; then
+    # 本地落后，尝试自动 rebase
+    echo -e "${YELLOW}本地落后于远程，尝试拉取并 rebase（推荐）...${NC}"
+    if ! git pull --rebase --autostash origin "$BRANCH"; then
+        echo -e "${RED}自动 rebase 失败，请手动解决冲突后再运行脚本${NC}"
+        # 返回初始目录
+        cd "$ORIGINAL_DIR"
+        exit 1
+    fi
+elif [ "$REMOTE_HASH" = "$BASE_HASH" ]; then
+    echo -e "${GREEN}本地领先于远程，准备推送...${NC}"
+else
+    echo -e "${RED}本地与远端出现分叉，需要手动合并或 rebase（脚本中止）${NC}"
+    echo -e "${BLUE}建议： git fetch origin && git rebase origin/${BRANCH} 或手动合并并解决冲突${NC}"
+    # 返回初始目录
+    cd "$ORIGINAL_DIR"
+    exit 1
+fi
+
+# 执行推送（优先普通推送，必要时使用 --force-with-lease）
 echo -e "${GREEN}正在推送到远程仓库...${NC}"
-git push
+if ! git push --porcelain origin "$BRANCH" 2>&1; then
+    echo -e "${YELLOW}普通推送失败，尝试使用 --force-with-lease（安全强制推送）...${NC}"
+    if ! git push --force-with-lease origin "$BRANCH"; then
+        echo -e "${RED}推送失败，请检查权限或远程分支状态${NC}"
+        # 返回初始目录
+        cd "$ORIGINAL_DIR"
+        exit 1
+    fi
+fi
 
 # 如果脚本运行到这里，说明一切正常
 echo -e "${GREEN}操作完成！${NC}"
