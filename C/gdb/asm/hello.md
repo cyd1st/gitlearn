@@ -77,4 +77,4 @@ Disassembly of section .text:
   401025:       0f 05                   syscall
 ```
 
-差别只在于hello.o的段地址未定，hello的段地址已定。
+差别只在于hello.o是相对地址，hello是绝对地址。
