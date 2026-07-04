@@ -1,0 +1,14 @@
+{
+  "name": "frontend-routing-comparison",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm run help",
+    "help": "echo '👉 运行示例：' && echo 'npm run express' && echo 'npm run react' && echo 'npm run nextjs'",
+    "express": "cd express-demo && node server.js",
+    "react": "cd react-router-demo && npm run dev",
+    "nextjs": "cd nextjs-demo && npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
